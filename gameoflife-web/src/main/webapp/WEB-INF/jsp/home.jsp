@@ -60,7 +60,7 @@
 
     </style>
 </head>
-<body bgcolor="red">
+<body bgcolor="silver">
 <h3>Welcome to Test version Game Of Life!</h3>
 
 <div class="intro">
