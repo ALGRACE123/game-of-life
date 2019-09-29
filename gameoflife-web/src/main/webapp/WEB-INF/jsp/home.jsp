@@ -61,7 +61,7 @@
     </style>
 </head>
 <body bgcolor="yellow">
-<h3>Welcome to Test version PUBG!</h3>
+<h3>Welcome to Test version of PUBG!</h3>
 
 <div class="intro">
     <p>This is a really cool web version of Conway's famous Game Of
