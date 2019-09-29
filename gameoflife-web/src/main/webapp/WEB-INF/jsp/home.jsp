@@ -60,8 +60,8 @@
 
     </style>
 </head>
-<body bgcolor="silver">
-<h3>Welcome to Test version Game Of Life!</h3>
+<body bgcolor="yellow">
+<h3>Welcome to Test version PUBG!</h3>
 
 <div class="intro">
     <p>This is a really cool web version of Conway's famous Game Of
