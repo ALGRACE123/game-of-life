@@ -60,7 +60,7 @@
 
     </style>
 </head>
-<body bgcolor="Black">
+<body bgcolor="yellow">
 <h3>Welcome to Test version of PUBG!</h3>
 
 <div class="intro">
