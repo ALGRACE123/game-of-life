@@ -15,9 +15,9 @@ pipeline {
     }
   }
   
-   stage ('test results') {
+   stage ('Artifact uploader') {
     steps {
-      junit '‘game-of-life/target/test-reports/*.xml’'
+      nexusPublisher nexusInstanceId: '12315', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/code/gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'facebook', groupId: 'www.facebook.com', packaging: 'war', version: '$BUILD_ID']]]
     }
   }
   
