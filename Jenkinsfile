@@ -10,13 +10,16 @@ pipeline {
        }
     }
   stage ('code compile') {
-   steps {
-     sh 'mvn install'
-    }
-  stage ('junit results') {
     steps {
-      junit 'game-of-life/target/test-reports/*.xml'
-     }
+      sh 'mvn install'
+    }
   }
+  
+   stage ('test results') {
+    steps {
+      junit '‘game-of-life/target/test-reports/*.xml’'
+    }
+  }
+  
  }
 }
