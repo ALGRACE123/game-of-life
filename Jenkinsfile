@@ -11,7 +11,7 @@ pipeline {
     }
   stage ('code compile') {
    steps {
-     sh 'mvn compile'
+     sh 'mvn install'
     }
   }
  }
