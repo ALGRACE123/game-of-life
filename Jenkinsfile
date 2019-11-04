@@ -15,7 +15,7 @@ pipeline {
     }
   stage ('junit results') {
     steps {
-      junit '‘game-of-life/target/test-reports/*.xml’'
+      junit 'game-of-life/target/test-reports/*.xml'
      }
   }
  }
