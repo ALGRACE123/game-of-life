@@ -13,11 +13,10 @@ pipeline {
    steps {
      sh 'mvn install'
     }
- stage ('junit results') {
-   steps {
-     junit '‘game-of-life/target/test-reports/*.xml’'
-    }
-   
+  stage ('junit results') {
+    steps {
+      junit '‘game-of-life/target/test-reports/*.xml’'
+     }
   }
  }
 }
