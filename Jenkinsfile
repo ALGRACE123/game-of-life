@@ -9,5 +9,10 @@ pipeline {
         git 'https://github.com/prashanth-1993/game-of-life.git'
        }
     }
+  stage ('Buildind the code'){
+       steps {
+        sh 'mvn  install'
+       }
+    }
  }
 }
