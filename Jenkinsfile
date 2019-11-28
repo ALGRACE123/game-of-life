@@ -14,5 +14,10 @@ pipeline {
         sh 'mvn  install'
        }
     }
+  stage('Results') {
+      steps {
+      junit '**/target/surefire-reports/TEST-*.xml'
+      archiveArtifacts 'target/*.war'
+      }
  }
 }
