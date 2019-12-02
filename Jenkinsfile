@@ -18,11 +18,7 @@ pipeline {
       steps {
       junit '**/target/surefire-reports/TEST-*.xml'
       archiveArtifacts '**/target/*.war'
-      }stage('Deploying into tomcat'){
-	   steps {
-	       sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /home/ansible/tomcat.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//home//ansible', remoteDirectorySDF: false, removePrefix: 'gameoflife-web/target', sourceFiles: 'gameoflife-web/target/* .war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-	   }
-    }
+      }
    }
   stage('Artifact upload') {
       steps {
@@ -32,7 +28,7 @@ pipeline {
  }
   	stage('Deploying into tomcat'){
 	   steps {
-	       sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /home/ansible/tomcat.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//home//ansible', remoteDirectorySDF: false, removePrefix: 'gameoflife-web/target', sourceFiles: 'gameoflife-web/target/* .war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+		 sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /home/ansible/tomcat.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//home//ansible', remoteDirectorySDF: false, removePrefix: 'gameoflife-web/target', sourceFiles: 'gameoflife-web/target/* .war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])	       
 	   }
         } 
  }
