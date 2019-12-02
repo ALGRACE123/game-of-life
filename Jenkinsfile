@@ -18,7 +18,11 @@ pipeline {
       steps {
       junit '**/target/surefire-reports/TEST-*.xml'
       archiveArtifacts '**/target/*.war'
-      }
+      }stage('Deploying into tomcat'){
+	   steps {
+	       sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /home/ansible/tomcat.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//home//ansible', remoteDirectorySDF: false, removePrefix: 'gameoflife-web/target', sourceFiles: 'gameoflife-web/target/* .war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+	   }
+    }
    }
   stage('Artifact upload') {
       steps {
@@ -26,5 +30,10 @@ pipeline {
       nexusPublisher nexusInstanceId: '12315', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/GameOfLife/gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'gameoflife', groupId: 'com.wakaleo.gameoflife', packaging: 'war', version: '$BUILD_ID']]]
 	  }	 
  }
+  	stage('Deploying into tomcat'){
+	   steps {
+	       sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /home/ansible/tomcat.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//home//ansible', remoteDirectorySDF: false, removePrefix: 'gameoflife-web/target', sourceFiles: 'gameoflife-web/target/* .war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+	   }
+        } 
  }
 }
