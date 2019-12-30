@@ -4,10 +4,10 @@ pipeline {
         maven 'Maven'
     }
     stages {
-      stage ('Preparation') {
+      stage ('Preparation 1') {
          steps {
              git 'https://github.com/prashanth-1993/game-of-life.git'          
           }
         } 
-     }
+    }
 }
