@@ -41,6 +41,7 @@ stages {
       
       }
  }
+/**    
  stage('Sonarqube') {
     environment {
         scannerHome = tool 'sonarqube'
@@ -53,7 +54,8 @@ stages {
             waitForQualityGate abortPipeline: true
         }
     }
-}
+} 
+**/
      stage('Artifact upload') {
       steps {
      nexusPublisher nexusInstanceId: '1234', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'gameoflife1', groupId: 'com.wakaleo.gameoflife', packaging: 'war', version: '$BUILD_NUMBER']]]
