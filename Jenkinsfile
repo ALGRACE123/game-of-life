@@ -19,6 +19,13 @@ pipeline {
                 junit '**/target/surefire-reports/TEST-*.xml'
              }
           }
+       stage('Nexus Repository') {
+             steps {
+                nexusPublisher nexusInstanceId: '1234', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/GameOfLIfe/gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'gameoflife', groupId: 'com.wakaleo.gameoflife', packaging: 'war', version: '$BUILD_NUMBER']]]
+             }
+          }
+      
+      
           
      }
 }
