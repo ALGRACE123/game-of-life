@@ -70,7 +70,7 @@ stages {
       //      archiveArtifacts 'gameoflife-web/target/*.war'
         //}
        // failure {
-         //   mail to:"sankar.dadi@qentelli.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
+         //   mail to:"prashanthrajenderan@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
         //}
     //}       
 }
